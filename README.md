@@ -31,3 +31,24 @@ Week 1: repository setup and project scaffolding
 - REST API for predictions
 - Docker containerization
 - experiment tracking
+
+## Project Structure
+
+fraud-review-detection-api/
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── data/
+│   ├── sample/
+│   └── processed/
+├── notebooks/
+├── src/
+│   ├── preprocess.py
+│   ├── train.py
+│   ├── evaluate.py
+│   └── predict.py
+├── api/
+│   └── main.py
+├── models/
+├── tests/
+└── artifacts/
