@@ -34,6 +34,7 @@ Week 1: repository setup and project scaffolding
 
 ## Project Structure
 
+```text
 fraud-review-detection-api/
 ├── README.md
 ├── requirements.txt
