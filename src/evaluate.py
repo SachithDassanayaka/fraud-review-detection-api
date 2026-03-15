@@ -24,8 +24,8 @@ def evaluate_model():
 
     df = load_and_preprocess(data_path)
 
-    X = df["clean_text"]
-    y = df["label"]
+    X_test = df["clean_text"]
+    y_test = df["label"]
 
     model = joblib.load(model_path)
     vectorizer = joblib.load(vectorizer_path)
