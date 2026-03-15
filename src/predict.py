@@ -1,5 +1,6 @@
 import os
 import joblib
+from preprocess import clean_text
 
 
 def load_artifacts():
@@ -15,7 +16,9 @@ def load_artifacts():
 
 def predict(text: str):
     model, vectorizer = load_artifacts()
-    text_vectorized = vectorizer.transform([text])
+
+    cleaned_text = clean_text(text)
+    text_vectorized = vectorizer.transform([cleaned_text])
     prediction = model.predict(text_vectorized)[0]
 
     if hasattr(model, "predict_proba"):
@@ -24,13 +27,14 @@ def predict(text: str):
         probability = None
 
     return {
-        "text": text,
+        "original_text": text,
+        "cleaned_text": cleaned_text,
         "prediction": int(prediction),
         "probability": float(probability) if probability is not None else None
     }
 
 
 if __name__ == "__main__":
-    sample_text = "This product is absolutely amazing and works perfectly"
+    sample_text = "This product is absolutely amazing and works perfectly!!!"
     result = predict(sample_text)
     print(result)
