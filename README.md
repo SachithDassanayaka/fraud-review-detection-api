@@ -53,27 +53,21 @@ fraud-review-detection-api/
 ├── models/
 ├── tests/
 └── artifacts/
-
+```
 
 ## Train the Model
 
-python src/train.py
+- python src/train.py
 
-The trained model will be saved to:
+- The trained model will be saved to:
 
 models/model.pkl
 models/vectorizer.pkl
 
 ## Run the Project
 
-Train model:
+- Train model: python src/train.py
 
-python src/train.py
+- Evaluate model: python src/evaluate.py
 
-Evaluate model:
-
-python src/evaluate.py
-
-Predict example:
-
-python src/predict.py
+- Predict example: python src/predict.py
