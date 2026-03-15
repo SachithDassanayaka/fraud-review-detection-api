@@ -17,7 +17,7 @@ from preprocess import load_and_preprocess
 
 def evaluate_model():
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    data_path = os.path.join(repo_root, "data", "sample", "reviews_sample.csv")
+    data_path = os.path.join(repo_root, "data", "processed", "test_data.csv")
     model_path = os.path.join(repo_root, "models", "model.pkl")
     vectorizer_path = os.path.join(repo_root, "models", "vectorizer.pkl")
     artifacts_path = os.path.join(repo_root, "artifacts", "metrics.json")
@@ -26,14 +26,6 @@ def evaluate_model():
 
     X = df["clean_text"]
     y = df["label"]
-
-    _, X_test, _, y_test = train_test_split(
-        X,
-        y,
-        test_size=0.2,
-        random_state=42,
-        stratify=y
-    )
 
     model = joblib.load(model_path)
     vectorizer = joblib.load(vectorizer_path)
