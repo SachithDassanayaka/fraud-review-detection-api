@@ -2,6 +2,9 @@
 
 This project demonstrates an end-to-end machine learning workflow for detecting potentially fraudulent online reviews using natural language processing.
 
+Note: This repository includes a small sample dataset for reproducibility and quick testing. The full training workflow was also tested locally on a larger dataset containing 2M+ Amazon fake reviews.
+
+
 ## Project Goal
 
 Build a system that supports:
@@ -14,8 +17,6 @@ Build a system that supports:
 ## Project Status
 
 Work in progress
-
-Week 1: repository setup and project scaffolding
 
 ## Planned Technology Stack
 
