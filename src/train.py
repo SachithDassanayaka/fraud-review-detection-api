@@ -10,7 +10,10 @@ from preprocess import load_and_preprocess
 
 
 def train_model():
-    data_path = "data/sample/reviews_sample.csv"
+    repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    data_path = os.path.join(repo_root, "data", "sample", "reviews_sample.csv")
+    models_dir = os.path.join(repo_root, "models")
+
     df = load_and_preprocess(data_path)
 
     X = df["clean_text"]
@@ -38,12 +41,11 @@ def train_model():
     print("\nClassification Report:\n")
     print(classification_report(y_test, y_pred))
 
-    os.makedirs("models", exist_ok=True)
-    joblib.dump(model, "models/model.pkl")
-    joblib.dump(vectorizer, "models/vectorizer.pkl")
+    os.makedirs(models_dir, exist_ok=True)
+    joblib.dump(model, os.path.join(models_dir, "model.pkl"))
+    joblib.dump(vectorizer, os.path.join(models_dir, "vectorizer.pkl"))
 
-    print("\nSaved model to models/model.pkl")
-    print("Saved vectorizer to models/vectorizer.pkl")
+    print("\nSaved model and vectorizer.")
 
 
 if __name__ == "__main__":
