@@ -63,3 +63,17 @@ The trained model will be saved to:
 
 models/model.pkl
 models/vectorizer.pkl
+
+## Run the Project
+
+Train model:
+
+python src/train.py
+
+Evaluate model:
+
+python src/evaluate.py
+
+Predict example:
+
+python src/predict.py
