@@ -1,5 +1,9 @@
-def evaluate_model():
-    print("Evaluation pipeline placeholder")
+from sklearn.metrics import classification_report
+import joblib
 
-if __name__ == "__main__":
-    evaluate_model()
+
+def evaluate(y_true, y_pred):
+
+    report = classification_report(y_true, y_pred)
+
+    print(report)
