@@ -10,8 +10,8 @@ def clean_text(text):
 
 def load_and_preprocess(path):
 
-import pandas as pd
-import re
+    import pandas as pd
+    import re
 
 def clean_text(text):
     text = str(text).lower()
