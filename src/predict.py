@@ -25,11 +25,16 @@ def predict(text: str):
         probability = model.predict_proba(text_vectorized)[0].max()
     else:
         probability = None
-
+    
+    label_map = {
+        0: "Non-Fake",
+        1: "Fake"
+    }
     return {
         "original_text": text,
         "cleaned_text": cleaned_text,
         "prediction": int(prediction),
+        "predicted_label": label_map.get(int(prediction), "unknown"),
         "probability": float(probability) if probability is not None else None
     }
 
