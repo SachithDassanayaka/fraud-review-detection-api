@@ -79,3 +79,9 @@ Start the FastAPI server:
 
 ```bash
 uvicorn api.main:app --reload
+```
+
+Try:
+
+```bash
+Example: http://127.0.0.1:8000/docs
