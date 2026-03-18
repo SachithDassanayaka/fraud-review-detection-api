@@ -72,3 +72,10 @@ models/vectorizer.pkl
 - Evaluate model: python src/evaluate.py
 
 - Predict example: python src/predict.py
+
+## Run the API
+
+Start the FastAPI server:
+
+```bash
+uvicorn api.main:app --reload
