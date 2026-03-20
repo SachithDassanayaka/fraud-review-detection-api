@@ -90,3 +90,13 @@ http://127.0.0.1:8000/docs
 ## API Documentation
 
 ![FastAPI Docs](docs/api_docs.png)
+
+
+## Run with Docker
+
+Build the image:
+
+```bash
+docker build -t fraud-review-api .
+```
+
