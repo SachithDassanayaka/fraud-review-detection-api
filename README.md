@@ -1,29 +1,33 @@
 # Fraud Review Detection API
 
-This project demonstrates an end-to-end machine learning workflow for detecting potentially fraudulent online reviews using natural language processing.
+An end-to-end NLP pipeline for detecting potentially fraudulent online reviews using machine learning.
 
-Note: This repository includes a small sample dataset for reproducibility and quick testing. The full training workflow was also tested locally on a larger dataset containing 2M+ Amazon fake reviews.
+This project demonstrates a production-oriented workflow that includes:
+- text preprocessing
+- model training
+- model evaluation
+- prediction on new text
+- FastAPI inference service
+- Docker containerization
+
+## Project Overview
+
+The goal of this project is to classify online reviews as either:
+- **genuine**
+- **suspicious**
+
+The repository includes a lightweight sample dataset for reproducibility and quick testing. The same pipeline can be adapted to larger review datasets.
 
 
-## Project Goal
-
-Build a system that supports:
-- preprocessing text data
-- training classification models
-- evaluating model performance
-- serving predictions through an API
-- containerized deployment
-
-## Project Status
-
-Work in progress
-
-## Planned Technology Stack
+## Technology Stack
 
 - Python
-- scikit-learn / PyTorch
+- scikit-learn
 - FastAPI
 - Docker
+- joblib
+- pandas
+- NumPy
 
 ## Planned Features
 
@@ -35,25 +39,36 @@ Work in progress
 
 ## Project Structure
 
+## Project Structure
+
 ```text
 fraud-review-detection-api/
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── data/
-│   ├── sample/
-│   └── processed/
-├── notebooks/
-├── src/
-│   ├── preprocess.py
-│   ├── train.py
-│   ├── evaluate.py
-│   └── predict.py
 ├── api/
 │   └── main.py
+├── artifacts/
+│   └── metrics.json
+├── data/
+│   ├── processed/
+│   │   └── test_data.csv
+│   └── sample/
+│       └── reviews_sample.csv
+├── docs/
 ├── models/
+│   └── .gitkeep
+├── notebooks/
+│   └── .gitkeep
+├── src/
+│   ├── evaluate.py
+│   ├── predict.py
+│   ├── preprocess.py
+│   └── train.py
 ├── tests/
-└── artifacts/
+│   └── .gitkeep
+├── .dockerignore
+├── .gitignore
+├── Dockerfile
+├── README.md
+└── requirements.txt
 ```
 
 ## Train the Model
@@ -100,3 +115,10 @@ Build the image:
 docker build -t fraud-review-api .
 ```
 
+Run the container:
+
+docker run -p 8000:8000 fraud-review-api
+
+Open the API docs at:
+
+http://127.0.0.1:8000/docs
