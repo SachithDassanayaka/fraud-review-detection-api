@@ -1,17 +1,12 @@
-import os
 import json
+import os
+
 import joblib
+from sklearn.metrics import (accuracy_score, classification_report,
+                             confusion_matrix, f1_score, precision_score,
+                             recall_score)
 
-from sklearn.metrics import (
-    accuracy_score,
-    precision_score,
-    recall_score,
-    f1_score,
-    classification_report,
-    confusion_matrix
-)
-
-from sklearn.model_selection import train_test_split
+# from sklearn.model_selection import train_test_split
 from preprocess import load_and_preprocess
 
 
@@ -37,7 +32,7 @@ def evaluate_model():
         "accuracy": accuracy_score(y_test, y_pred),
         "precision": precision_score(y_test, y_pred),
         "recall": recall_score(y_test, y_pred),
-        "f1_score": f1_score(y_test, y_pred)
+        "f1_score": f1_score(y_test, y_pred),
     }
 
     print("Evaluation Metrics")

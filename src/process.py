@@ -1,5 +1,7 @@
-import pandas as pd
 import re
+
+import pandas as pd
+
 
 def clean_text(text):
     text = text.lower()

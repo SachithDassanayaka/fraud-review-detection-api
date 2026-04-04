@@ -1,12 +1,11 @@
 import os
-import joblib
-import os
-import pandas as pd
 
-from sklearn.model_selection import train_test_split
+import joblib
+import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report, accuracy_score, f1_score
+from sklearn.metrics import accuracy_score, classification_report, f1_score
+from sklearn.model_selection import train_test_split
 
 from preprocess import load_and_preprocess
 
@@ -22,26 +21,20 @@ def train_model():
     y = df["label"]
 
     X_train, X_test, y_train, y_test = train_test_split(
-        X,
-        y,
-        test_size=0.2,
-        random_state=42,
-        stratify=y
+        X, y, test_size=0.2, random_state=42, stratify=y
     )
-    #saving the test set 
+    # saving the test set
+
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     processed_dir = os.path.join(repo_root, "data", "processed")
 
     os.makedirs(processed_dir, exist_ok=True)
 
-    test_df = pd.DataFrame({
-        "text": X_test,
-        "label": y_test
-    })
+    test_df = pd.DataFrame({"text": X_test, "label": y_test})
 
     test_df.to_csv(os.path.join(processed_dir, "test_data.csv"), index=False)
-    #saved test set into processed folder "test_data.csv"
-    
+    # saved test set into processed folder "test_data.csv"
+
     vectorizer = TfidfVectorizer(max_features=5000)
     X_train_vec = vectorizer.fit_transform(X_train)
     X_test_vec = vectorizer.transform(X_test)

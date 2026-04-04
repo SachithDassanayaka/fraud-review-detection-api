@@ -4,6 +4,8 @@ import sys
 from fastapi import FastAPI
 from pydantic import BaseModel
 
+from predict import predict
+
 # allow importing from src/
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.dirname(CURRENT_DIR)
@@ -11,9 +13,6 @@ SRC_DIR = os.path.join(REPO_ROOT, "src")
 
 if SRC_DIR not in sys.path:
     sys.path.append(SRC_DIR)
-
-from predict import predict
-
 
 app = FastAPI(title="Fraud Review Detection API")
 
