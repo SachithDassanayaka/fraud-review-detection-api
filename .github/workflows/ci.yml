@@ -40,4 +40,6 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest
+            export PYTHONPATH=.
+            pytest
+            
