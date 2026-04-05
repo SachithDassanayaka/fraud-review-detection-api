@@ -1,10 +1,19 @@
 from fastapi.testclient import TestClient
-
 from api.main import app
+from unittest.mock import patch
 
 client = TestClient(app)
 
+@patch("src.predict.predict")
 
+
+def test_api(mock_predict, client):
+    mock_predict.return_value = "fake"
+
+    response = client.post("/predict", json={"text": "test review"})
+    assert response.status_code == 200
+    
+    
 def test_root():
     response = client.get("/")
     assert response.status_code == 200
