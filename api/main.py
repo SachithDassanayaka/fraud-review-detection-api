@@ -4,7 +4,7 @@ import sys
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from predict import predict
+from src.predict import predict
 
 # allow importing from src/
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))

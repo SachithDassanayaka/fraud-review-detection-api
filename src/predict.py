@@ -2,7 +2,7 @@ import os
 
 import joblib
 
-from preprocess import clean_text
+from src.preprocess import clean_text
 
 
 def load_artifacts():
