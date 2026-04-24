@@ -29,15 +29,14 @@ The repository includes a lightweight sample dataset for reproducibility and qui
 - pandas
 - NumPy
 
-## Planned Features
+## What is inside?
 
-- text preprocessing pipeline
-- model training and evaluation
+- Text preprocessing pipeline
+- Model training and evaluation
 - REST API for predictions
 - Docker containerization
-- experiment tracking
+- Experiment tracking
 
-## Project Structure
 
 ## Project Structure
 
